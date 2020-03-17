@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<div class="form-group">
+        <label for="">Tên địa danh</label>
+        <input [value]="addSites.nameSites" 
+          (keyup) = "addSites.nameSites = $event.target.value"
+          type="text" class="form-control"
+        >
+			</div>
+		
+     <div class="row">
+            <div class="col-6 offset-3">
+                <img [src]="addSites.imgSites" class="img-fluid">
+            </div>
+      </div>
+      <div class="form-group">
+            <label for="">Hình ảnh:</label>
+            <input 
+                [value]="addSites.imgSites"
+                (keyup)="addSites.imgSites = $event.target.value"
+                type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+            <label for="">Diện tích:</label>
+            <input 
+                [value]="addSites.s"
+                (keyup)="addSites.s = $event.target.value"
+                type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+            <label for="">Lịch sử:</label>
+            <input 
+                [value]="addSites.ls"
+                (keyup)="addSites.ls = $event.target.value"
+                type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+            <label for="">Tên danh nhân:</label>
+            <input 
+                [value]="addSites.name"
+                (keyup)="addSites.name = $event.target.value"
+                type="text" class="form-control" >
+      </div>
+      <div class="row">
+            <div class="col-6 offset-3">
+                <img [src]="addSites.img" class="img-fluid">
+            </div>
+      </div>
+      <div class="form-group">
+            <label for="">Hình ảnh danh nhân:</label>
+            <input 
+                [value]="addSites.img"
+                (keyup)="addSites.img = $event.target.value"
+                type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+            <label for="">Năm sinh:</label>
+            <input 
+                [value]="addSites.ns"
+                (keyup)="addSites.ns = $event.target.value"
+                type="text" class="form-control" >
+      </div>
+      <div class="form-group">
+            <label for="">Năm mất:</label>
+            <input 
+                [value]="addSites.nm"
+                (keyup)="addSites.nm = $event.target.value"
+                type="text" class="form-control" >
+      </div>
+      <div class="text-center">
+        <button 
+                (click)="addNewSites()"
+                class="btn btn-sm btn-success">Thêm</button>
+      </div>
+      </div>
+	</div>
+</div>
+
+<div class="container">
+  <h2>Thông tin danh lam thám cảnh</h2>
+  <table class="table">
+    <thead >
+      <tr>
+        <th >ID</th>
+        <th >Tên địa danh</th>
+        <th >Hình ảnh</th>
+        <th >Diện tích</th>
+        <th >Lịch sử</th>
+        <th >Danh nhân</th>
+        <th >Hình  danh nhân</th>
+        <th >Năm sinh</th>
+        <th >Năm mất</th>
+        <th >Sửa</th>
+        <th >Xóa</th>
+      </tr>
+    </thead>
+      <tbody>
+        <tr *ngFor="let t of sites">
+          <th scope="row">{{t.id}}</th>
+            <td>{{t.nameSites}}</td>
+            <td> <img [src]="t.imgSites" width="50"></td>
+            <td>{{t.s}}</td>
+            <td>{{t.ls}}</td>
+            <td>{{t.name}}</td>
+            <td><img [src]="t.img" width="50" ></td>
+            <td>{{t.ns}}</td>
+            <td>{{t.nm}}</td>
+            <td> <button type="button" (click) = "edit(t)" class="btn btn-primary info">Sửa</button>
+            </td>
+            <td><button type="button" (click)="removeSites(t)" name="" id="" class="btn btn-primary danger">Xóa</button>
+            </td>
+        </tr>
+
+      </tbody>
+    </table>
+</div>
